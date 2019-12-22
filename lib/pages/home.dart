@@ -48,17 +48,10 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.all(10.0),
         child: SafeArea(
           child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Column(
-                children: <Widget>[
-                  const RowWidget(),
-                  Padding(
-                    padding: EdgeInsets.all(10.0),
-                  ),
-                  const RowAndColumnWidget(),
-                ],
-              ),
+            child: Column(
+              children: <Widget>[
+                const ContainerWithBoxDecorationWidget(),
+              ],
             ),
           ),
         ),
@@ -67,118 +60,40 @@ class _HomeState extends State<Home> {
   }
 }
 
-class RowWidget extends StatelessWidget {
-  const RowWidget({
-    Key key,
-  }) : super(key: key);
+class ContainerWithBoxDecorationWidget extends StatelessWidget {
+  const ContainerWithBoxDecorationWidget({ Key key, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: <Widget>[
         Container(
-          color: Colors.yellow,
-          height: 40.0,
-          width: 40.0,
-        ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.amber,
-            height: 40.0,
-            width: 40.0,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(10.0),
-        ),
-        Container(
-          color: Colors.brown,
-          height: 40.0,
-          width: 40.0,
-        ),
-      ],
-    );
-  }
-}
-
-class RowAndColumnWidget extends StatelessWidget {
-  const RowAndColumnWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Container(
-              color: Colors.yellow,
-              height: 60.0,
-              width: 60.0,
+          height: 100.0,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(100.0),
+              bottomRight: Radius.circular(10.0),
             ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Colors.white,
+                Colors.lightGreen.shade500,
+              ],
             ),
-            Container(
-              color: Colors.amber,
-              height: 40.0,
-              width: 40.0,
-            ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-            ),
-            Container(
-              color: Colors.brown,
-              height: 20.0,
-              width: 20.0,
-            ),
-            Divider(),
-            // const RowAndStackWidget(),
-            // Divider(),
-            Text('End of the Line'),
-          ],
-        ),
-      ],
-    );
-  }
-}
-
-class RowAndStackWidget extends StatelessWidget {
-  const RowAndStackWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        CircleAvatar(
-          backgroundColor: Colors.lightGreen,
-          radius: 90.0,
-          child: Stack(
-            children: <Widget>[
-              Container(
-                height: 80.0,
-                width: 80.0,
-                color: Colors.yellow,
-              ),
-              Container(
-                height: 60.0,
-                width: 60.0,
-                color: Colors.amber,
-              ),
-              Container(
-                height: 40.0,
-                width: 40.0,
-                color: Colors.brown,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white,
+                blurRadius: 10.0,
+                offset: Offset(0.0, 10.0),
               ),
             ],
+          ),
+          child: Center(
+            child: RichText(
+              text: TextSpan(text: 'Container'),
+            ),
           ),
         ),
       ],
