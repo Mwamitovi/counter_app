@@ -44,18 +44,21 @@ class _HomeState extends State<Home> {
           preferredSize: Size.fromHeight(75.0),
         ),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: <Widget>[
-                const RowWidget(),
-                Padding(
-                  padding: EdgeInsets.all(10.0),
-                ),
-                const RowAndColumnWidget(),
-              ],
+      body: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Column(
+                children: <Widget>[
+                  const RowWidget(),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                  ),
+                  const RowAndColumnWidget(),
+                ],
+              ),
             ),
           ),
         ),
