@@ -10,7 +10,39 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {},
+        ),
         title: Text('Home'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () { },
+          ),
+          IconButton(
+            icon: Icon(Icons.more_vert),
+            onPressed: () { },
+          ),
+        ],
+        flexibleSpace: SafeArea(
+          child: Icon(
+            Icons.photo_camera,
+            size: 75.0,
+            color: Colors.white70,
+          ),
+        ),
+        bottom: PreferredSize(
+          child: Container(
+            color: Colors.lightGreen.shade100,
+            height: 75.0,
+            width: double.infinity,
+            child: Center(
+              child: Text('Bottom'),
+            ),
+          ),
+          preferredSize: Size.fromHeight(75.0),
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -104,8 +136,8 @@ class RowAndColumnWidget extends StatelessWidget {
               width: 20.0,
             ),
             Divider(),
-            const RowAndStackWidget(),
-            Divider(),
+            // const RowAndStackWidget(),
+            // Divider(),
             Text('End of the Line'),
           ],
         ),
