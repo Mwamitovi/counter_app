@@ -62,6 +62,29 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.play_arrow),
+        backgroundColor: Colors.lightGreen.shade100,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape:  CircularNotchedRectangle(),
+        notchMargin: 4.0,
+        color: Colors.lightGreen.shade100,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Icon(Icons.pause),
+            Icon(Icons.stop),
+            Icon(Icons.access_time),
+            Padding(
+              padding: EdgeInsets.all(32.0),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
