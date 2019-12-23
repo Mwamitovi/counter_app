@@ -40,13 +40,17 @@ class _HomeState extends State<Home> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const ContainerWithBoxDecorationWidget(),
+                // const ContainerWithBoxDecorationWidget(),
+                // Divider(),
+                // const ColumnWidget(),
+                // Divider(),
+                // const RowWidget(),
+                // Divider(),
+                // const ColumnAndRowNestingWidget(),
+                // Divider(),
+                const ButtonsWidget(),
                 Divider(),
-                const ColumnWidget(),
-                Divider(),
-                const RowWidget(),
-                Divider(),
-                const ColumnAndRowNestingWidget(),
+                const ButtonBarWidget(),
               ],
             ),
           ),
@@ -290,3 +294,111 @@ List<TodoMenuItem> foodMenuList = [
   TodoMenuItem(title: 'Flight', icon: Icon(Icons.flight)),
   TodoMenuItem(title: 'Music', icon: Icon(Icons.audiotrack)),
 ];
+
+class ButtonsWidget extends StatelessWidget {
+  const ButtonsWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Text('Flag'),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            FlatButton(
+              onPressed: () {},
+              child: Icon(Icons.flag),
+              color: Colors.lightGreen,
+              textColor: Colors.white,
+            ),
+          ],
+        ),
+        Divider(),
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            RaisedButton(
+              onPressed: () {},
+              child: Text('Save'),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            RaisedButton(
+              onPressed: () {},
+              child: Icon(Icons.save),
+              color: Colors.lightGreen,
+            ),
+          ],
+        ),
+        Divider(),
+        Row(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            IconButton(
+              icon: Icon(Icons.flight),
+              onPressed: () {},
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+            ),
+            IconButton(
+              icon: Icon(Icons.flight),
+              iconSize: 42.0,
+              color: Colors.lightGreen,
+              tooltip: 'Flight',
+              onPressed: () {},
+            ),
+            Divider(),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ButtonBarWidget extends StatelessWidget {
+  const ButtonBarWidget({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white70,
+      child: ButtonBar(
+        alignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          IconButton(
+            icon: Icon(Icons.map),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.airport_shuttle),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: Icon(Icons.brush),
+            highlightColor: Colors.purple,
+            onPressed: () {},
+          ),
+        ],
+      ),
+    );
+  }
+}
